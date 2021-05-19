@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+<div class="hero">
+  <h1>Customer reviews</h1>
+  <div class="review-box">
+      <div id="slide">
+
+        <%  customer.forEach(function(customer){ %>
+          <div class="card">
+            <div class="profile">
+              <img src="images/pic1.jpg" alt="">
+                  <div>
+                    <h3><%= customer.Name %></h3>
+                    <p><%=customer.designation%></p>
+                  </div>
+            </div>
+                    <p><%=customer.content%></p>
+
+          </div>
+
+          <% }) %>
+
+    </div>
+      <div class="side-bar">
+          <img src="images/up-arrow.png" alt="" id="uparrow">
+          <img src="images/down-arrow.png" alt="" id="downarrow">
+      </div>
+  </div>
+</div>
+
+<a href="/compose" class="review">Review</a>
+  <script type="text/javascript">
+    var slide= document.getElementById('slide');
+    var uparrow= document.getElementById('uparrow');
+    var downarrow= document.getElementById('downarrow');
+
+    let x=0;
+    uparrow.onclick = function(){
+      if(x>"-900"){
+      x=x-300;
+      slide.style.top= x +"px";}
+    }
+    downarrow.onclick= function(){
+      if(x<0){
+      x=x+300;
+      slide.style.top= x +"px";}
+    }
+  </script>
+  </body>
+</html>
